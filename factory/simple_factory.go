@@ -2,53 +2,6 @@ package factory
 
 import "fmt"
 
-//翻译接口
-type Translator interface {
-	Translate(string) string
-}
-
-//德语翻译类
-type GermanTranslator struct{}
-
-func (*GermanTranslator) Translate(words string) string {
-
-	return "德语"
-}
-
-//英语翻译类
-type EnglishTranslator struct{}
-
-func (*EnglishTranslator) Translate(words string) string {
-
-	return "英语"
-}
-
-//日语翻译类
-type JapaneseTranslator struct{}
-
-func (*JapaneseTranslator) Translate(words string) string {
-
-	return "日语"
-}
-
-func Create(lan int) Translator {
-	var translator Translator
-
-	//根据不同的语言种类，实例化不同的翻译类
-	switch lan {
-	case 1:
-		translator = new(GermanTranslator)
-	case 2:
-		translator = new(EnglishTranslator)
-	case 3:
-		translator = new(JapaneseTranslator)
-	default:
-		panic("no such translator")
-	}
-
-	return translator
-}
-
 type Human interface {
 	GetColor() string
 	Talk()
