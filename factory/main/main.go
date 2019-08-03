@@ -20,8 +20,12 @@ func main() {
 	fmt.Println(human.GetColor())
 
 	humanFactory := new(factory.HumanFactory)
-	human2 := humanFactory.CreateHuman("Black")
+	human2 := humanFactory.CreateHumanByType(factory.BlackHuman{})
+
 	human2.Talk()
 	fmt.Println(human2.GetColor())
 
+	/* 	a := factory.BlackHuman{}
+	   	bb := reflect.TypeOf(a)
+	   	fmt.Println(bb.Name()) */
 }
